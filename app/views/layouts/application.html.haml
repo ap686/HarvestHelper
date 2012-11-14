@@ -6,4 +6,14 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    .banner
+      %h1 Harvest Helper
+      %p Insert witty catchphrase here
+    .navlinks
+      = link_to 'Home', root_path
+      = link_to 'About', about_path
+      - if signed_in?
+        = link_to 'Sign Out', signout_path, method: 'delete'
+      - else
+        = link_to 'Sign In', signin_path
     = yield

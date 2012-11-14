@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+.banner
+{
+  background-color: #AAAAAA;
+  float: top;
+}
+.banner h1
+{
+  margin: 0;
+}
+.banner p
+{
+  margin: 0;
+}
+
+.navlinks
+{
+  background-color: #888888;
+  float: top;
+}
