@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121113231426) do
+ActiveRecord::Schema.define(:version => 20121114025756) do
+
+  create_table "garden_devices", :force => true do |t|
+    t.string   "serial_number"
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "garden_devices", ["serial_number"], :name => "index_garden_devices_on_serial_number", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
