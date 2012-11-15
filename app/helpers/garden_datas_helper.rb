@@ -1,0 +1,2 @@
+module GardenDatasHelper
+end

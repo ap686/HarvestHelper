@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114025756) do
+ActiveRecord::Schema.define(:version => 20121115025916) do
+
+  create_table "garden_data", :force => true do |t|
+    t.integer  "garden_device_id"
+    t.decimal  "temperature"
+    t.decimal  "humidity"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "garden_devices", :force => true do |t|
     t.string   "serial_number"

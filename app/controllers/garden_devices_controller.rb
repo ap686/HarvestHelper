@@ -1,4 +1,8 @@
 class GardenDevicesController < ApplicationController
+  def show
+    @garden_device = GardenDevice.find(params[:id])
+  end
+  
   def new
     @garden_device = GardenDevice.new
   end

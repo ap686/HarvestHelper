@@ -3,5 +3,5 @@
 = link_to 'Add Device', add_device_path
 %ul
   - @user.garden_devices.each do |garden_device|
-    %li= garden_device.name
+    %li= link_to garden_device.name, garden_device
   
