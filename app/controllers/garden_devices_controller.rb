@@ -1,6 +1,7 @@
 class GardenDevicesController < ApplicationController
   def show
     @garden_device = GardenDevice.find(params[:id])
+    @device_schedule = DeviceSchedule.new
   end
   
   def new

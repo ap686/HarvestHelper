@@ -4,6 +4,7 @@ HarvestHelper::Application.routes.draw do
   resources :users, only: [:show, :new, :create]
 	resources :sessions, only: [:new, :create, :destroy]
   resources :garden_devices, only: [:show, :new, :create]
+  resources :device_schedules, only: [:create, :destroy]
   
   match '/about', to: 'static_pages#about'
   match '/signup', to: 'users#new'
