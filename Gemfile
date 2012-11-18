@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 gem 'haml-rails'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails'
+gem 'thread'
 
 group :development do
   gem 'sqlite3'
