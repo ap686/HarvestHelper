@@ -6,10 +6,6 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails'
 gem 'thread'
 
-group :development do
-  gem 'sqlite3'
-end
-
 group :production do
   gem 'pg'
 end
