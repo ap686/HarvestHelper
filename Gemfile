@@ -5,6 +5,7 @@ gem 'haml-rails'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails'
 gem 'thread'
+gem 'pry-rails'
 
 group :production do
   gem 'pg'
