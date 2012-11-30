@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'haml-rails'
@@ -9,6 +9,7 @@ gem 'pry-rails'
 
 group :production do
   gem 'pg'
+	gem 'therubyracer', :platforms => :ruby
 end
 
 group :development, :test do
@@ -30,3 +31,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'rubber'
+gem 'open4'
+gem 'gelf'
+gem 'graylog2_exceptions', :git => 'git://github.com/wr0ngway/graylog2_exceptions.git'
+gem 'graylog2-resque'
