@@ -43,6 +43,7 @@ class GardenDeviceServiceController < ApplicationController
         garden_data = garden_device.garden_datas.new
         garden_data.temperature = params[:Degrees]
         garden_data.humidity = params[:Humidity]
+        garden_data.lux = params[:Lux]
         garden_data.save
         render :nothing => true, :status => :ok
       else

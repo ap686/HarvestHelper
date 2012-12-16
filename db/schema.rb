@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117194945) do
+ActiveRecord::Schema.define(:version => 20121216182600) do
 
   create_table "device_schedules", :force => true do |t|
     t.string   "sensor_flag"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20121117194945) do
     t.decimal  "humidity"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.decimal  "lux"
   end
 
   create_table "garden_devices", :force => true do |t|
