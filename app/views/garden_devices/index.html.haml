@@ -1,0 +1,17 @@
+%h1 Listing garden_conditions
+
+%table
+  %tr
+    %th Serial Number
+    %th
+    %th
+    %th
+
+  - @garden_devices.each do |garden_device|
+    %tr
+      %td= garden_device.serial_number
+      %td= link_to 'Show', garden_device
+      
+%br
+
+= link_to 'New Garden condition', new_garden_device_path
