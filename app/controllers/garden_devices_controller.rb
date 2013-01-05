@@ -1,11 +1,20 @@
 class GardenDevicesController < ApplicationController
   def show
-    @garden_device = GardenDevice.find(params[:id])
-    @device_schedule = DeviceSchedule.new
+    if !signed_in?
+      redirect_to root_path
+    else
+      @garden_device = GardenDevice.find(params[:id])
+      @device_schedule = DeviceSchedule.new
+    end
   end
   
   def new
-    @garden_device = GardenDevice.new
+    if !signed_in?
+      redirect_to root_path
+    else
+      @garden_device = GardenDevice.new
+    end
+      
   end
   
   def create

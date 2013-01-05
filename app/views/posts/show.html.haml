@@ -1,0 +1,14 @@
+%h1= @post.title
+%table
+  %tr
+    %td= link_to @post.user.name, @post.user
+    %td= @post.content
+  - @post.comments.each do |comment|
+    - if comment.valid?
+      %tr
+        %td= link_to comment.user.name, comment.user
+        %td= comment.content
+= form_for(@comment) do |f|
+  = hidden_field_tag 'post_id', @post.id
+  = f.text_field :content
+  = f.submit "Add Comment"

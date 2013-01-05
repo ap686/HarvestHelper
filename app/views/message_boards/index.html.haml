@@ -1,0 +1,5 @@
+%h1 Forums
+%table
+  - @message_boards.each do |message_board|
+    %tr
+      %td= link_to message_board.name, message_board

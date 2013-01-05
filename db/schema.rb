@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216182600) do
+ActiveRecord::Schema.define(:version => 20121231173048) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "device_schedules", :force => true do |t|
     t.string   "sensor_flag"
@@ -48,6 +56,21 @@ ActiveRecord::Schema.define(:version => 20121216182600) do
   end
 
   add_index "garden_devices", ["serial_number"], :name => "index_garden_devices_on_serial_number", :unique => true
+
+  create_table "message_boards", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.integer  "message_board_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "schedule_type_lookups", :force => true do |t|
     t.string   "flag"

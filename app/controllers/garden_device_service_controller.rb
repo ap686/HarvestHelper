@@ -41,7 +41,7 @@ class GardenDeviceServiceController < ApplicationController
       garden_device = GardenDevice.find_by_serial_number(params[:sn])
       if (garden_device)
         garden_data = garden_device.garden_datas.new
-        garden_data.temperature = params[:Degrees]
+        garden_data.temperature = params[:Temperature]
         garden_data.humidity = params[:Humidity]
         garden_data.lux = params[:Lux]
         garden_data.save

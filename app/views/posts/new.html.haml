@@ -1,0 +1,13 @@
+%h1 New Post
+= form_for(@post) do |f|
+  = hidden_field_tag 'message_board_id', @message_board_id
+  %table
+    %tr
+      %td= f.label :title
+      %td= f.text_field :title
+    %tr
+      %td= f.label :content
+      %td= f.text_field :content
+    %tr
+      %td
+      %td= f.submit "Create Post"

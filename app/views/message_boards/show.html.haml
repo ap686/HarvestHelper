@@ -1,0 +1,13 @@
+%h1= @message_board.name
+%p= link_to 'New Post', new_post_path(:board_id => @message_board.id)
+%table
+  %tr
+    %th User
+    %th Topic
+    %th Comments
+  - @message_board.posts.each do |post|
+    %tr
+      %td= link_to post.user.name, post.user
+      %td= link_to post.title, post
+      %td= post.comments.length
+%p= link_to 'New Post', new_post_path(:board_id => @message_board.id)

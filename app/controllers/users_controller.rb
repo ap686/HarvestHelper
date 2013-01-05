@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    if !signed_in?
+      redirect_to root_path
+    else
+      @user = User.find(params[:id])
+    end
   end
   
   def new
