@@ -18,6 +18,8 @@
             - if signed_in?
               %li
                 = link_to 'My Devices', current_user
+              %li
+                = link_to 'Forums', message_boards_path
           %ul.nav.pull-right
             - if signed_in?
               %li
