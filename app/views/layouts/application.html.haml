@@ -2,20 +2,34 @@
 %html
   %head
     %title HarvestHelper
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .banner
-      %h1 Harvest Helper
-      %p Insert witty catchphrase here
-    .navlinks
-      = link_to 'Home', root_path
-      = link_to 'About', about_path
-      - if signed_in?
-        = link_to 'My Devices', current_user
-        = link_to 'Forums', message_boards_path
-        = link_to 'Sign Out', signout_path, method: 'delete'
-      - else
-        = link_to 'Sign In', signin_path
-    = yield
+    .navbar.navbar-fixed-top.navbar-inverse
+      .navbar-inner
+        .container
+          %a.brand{:href => "#"}Harvest Helper
+          %ul.nav
+            %li
+              = link_to 'Home', root_path
+            %li
+              = link_to 'About', about_path
+            - if signed_in?
+              %li
+                = link_to 'My Devices', current_user
+          %ul.nav.pull-right
+            - if signed_in?
+              %li
+              %li
+                = link_to current_user.name
+              %li
+                = link_to 'Sign Out', signout_path, method: 'delete'
+            - else
+              %li
+                = link_to 'Sign In', signin_path
+    .container
+      .row
+        .span10
+          = yield
+        .span2

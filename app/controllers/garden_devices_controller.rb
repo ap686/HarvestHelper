@@ -1,4 +1,14 @@
 class GardenDevicesController < ApplicationController
+
+  def index
+    @garden_devices = GardenDevice.all
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @garden_devices }
+    end
+  end
+  
   def show
     if !signed_in?
       redirect_to root_path
