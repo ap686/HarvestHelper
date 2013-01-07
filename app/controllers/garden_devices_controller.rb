@@ -1,7 +1,7 @@
 class GardenDevicesController < ApplicationController
 
   def index
-    @garden_devices = GardenDevice.all
+    @garden_devices = current_user.garden_devices
     
     respond_to do |format|
       format.html # index.html.erb
@@ -10,7 +10,7 @@ class GardenDevicesController < ApplicationController
   end
   
   def show
-    if !signed_in?
+    if !user_signed_in?
       redirect_to root_path
     else
       @garden_device = GardenDevice.find(params[:id])
@@ -19,7 +19,7 @@ class GardenDevicesController < ApplicationController
   end
   
   def new
-    if !signed_in?
+    if !user_signed_in?
       redirect_to root_path
     else
       @garden_device = GardenDevice.new
@@ -30,7 +30,7 @@ class GardenDevicesController < ApplicationController
   def create
     @garden_device = current_user.garden_devices.build(params[:garden_device])
     if @garden_device.save
-      redirect_to current_user
+      redirect_to garden_devices_path
     else
       render 'new'
     end
