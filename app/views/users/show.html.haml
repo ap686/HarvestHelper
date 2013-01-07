@@ -1,7 +1,0 @@
-%h1= @user.name + '\'s Profile'
-%h2 Devices
-= link_to 'Add Device', add_device_path
-%ul
-  - @user.garden_devices.each do |garden_device|
-    %li= link_to garden_device.name, garden_device
-  
