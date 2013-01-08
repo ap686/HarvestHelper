@@ -6,7 +6,7 @@ class GardenDevice < ActiveRecord::Base
   
   before_save { |device| device.serial_number = serial_number.downcase }
   
-  validates :name,
+  validates :name, :user,
               presence: true
   validates :serial_number,
               presence: true,
