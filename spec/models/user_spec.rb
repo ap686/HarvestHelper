@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
   describe "create" do
     let!(:user){FactoryGirl.create(:user)}
-    [:email, :password].each do |field|
+    [:email, :password, :first_name, :last_name].each do |field|
       it "should have #{field}" do
         user.should validate_presence_of(field)
       end
