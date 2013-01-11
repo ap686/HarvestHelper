@@ -24,7 +24,7 @@
             - if user_signed_in?
               %li
               %li
-                = link_to current_user.email
+                = link_to get_full_name
               %li
                 = link_to 'Sign Out', destroy_user_session_path, method: 'delete'
             - else
