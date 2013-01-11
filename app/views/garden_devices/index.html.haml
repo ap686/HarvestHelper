@@ -2,12 +2,14 @@
 
 %table.table.table-striped
   %tr
+    %th Name 
     %th Serial Number
     %th Owner
-    %th
+    %th Action
 
   - @garden_devices.each do |garden_device|
     %tr
+      %td= garden_device.name
       %td= garden_device.serial_number
       %td= garden_device.user.email
       %td= link_to 'Show', garden_device
