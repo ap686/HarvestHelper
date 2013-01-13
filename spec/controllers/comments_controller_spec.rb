@@ -1,26 +1,24 @@
 require 'spec_helper'
 
 describe CommentsController do
+  
+  let!(:user){FactoryGirl.create(:user)}
+  let!(:post){FactoryGirl.create(:post, :user => user)}
+  before(:each) do
+    sign_in user
+  end
+    
+  after(:each) do
+    sign_out user
+  end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+  describe "POST 'create'" do
+    it "create a new comment" do
+
     end
   end
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
+  describe "GET 'destroy'" do    
   end
 
 end

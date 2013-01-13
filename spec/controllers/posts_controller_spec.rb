@@ -2,32 +2,40 @@ require 'spec_helper'
 
 describe PostsController do
 
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
+  let!(:user){FactoryGirl.create(:user)}
+  let!(:post){ FactoryGirl.create(:post, :user => user)}
+  describe 'login' do
+    
+    before(:each) do
+      sign_in user
+    end
+      
+    after(:each) do
+      sign_out user
+    end
+  
+    describe "GET 'show'" do
+      it "returns http success" do
+        get 'show', :id => post.id
+        response.should be_success
+      end
+    end
+  
+    describe "GET 'new'" do
+      it "returns http success" do
+        get 'new'
+        response.should be_success
+      end
+    end
+  
+    describe "GET 'create'" do
+      it "returns http success" do
+        get 'create'
+        response.should be_success
+      end
+    end
+  
+    describe "GET 'destroy'" do
     end
   end
-
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-
 end
