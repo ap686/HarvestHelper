@@ -7,6 +7,10 @@ describe "GardenData" do
     garden_data.should belong_to(:garden_device)
   end
   
+  it "should have garden_device" do
+    garden_data.should validate_presence_of(:garden_device)
+  end
+  
   [:temperature, :humidity].each do |attr|
     it "should have #{attr} with type decimal" do
       garden_data.should have_db_column(attr).of_type(:decimal)
