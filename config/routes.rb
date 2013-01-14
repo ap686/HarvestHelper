@@ -1,9 +1,11 @@
 HarvestHelper::Application.routes.draw do
+  get "users/show"
+
   devise_for :users
 
   root to: 'static_pages#home'
   
-  #resources :users, only: [:show, :new, :create]
+  resources :users, only: [:show]
 	#resources :sessions, only: [:new, :create, :destroy]
   resources :garden_devices, only: [:show, :new, :create, :index]
   resources :device_schedules, only: [:create, :destroy]

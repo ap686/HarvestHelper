@@ -1,12 +1,12 @@
 %h1= @post.title
-%table
+%table.table.table-striped
   %tr
-    %td= link_to @post.user.name, @post.user
+    %td= link_to @post.user.first_name, @post.user
     %td= @post.content
   - @post.comments.each do |comment|
     - if comment.valid?
       %tr
-        %td= link_to comment.user.name, comment.user
+        %td= link_to comment.user.first_name, comment.user
         %td= comment.content
 = form_for(@comment) do |f|
   = hidden_field_tag 'post_id', @post.id
