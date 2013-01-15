@@ -14,11 +14,12 @@ describe CommentsController do
 
   describe "POST 'create'" do
     it "create a new comment" do
-
+      pending
     end
   end
 
   describe "GET 'destroy'" do    
+  
   end
 
 end
