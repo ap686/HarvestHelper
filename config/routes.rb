@@ -21,4 +21,6 @@ HarvestHelper::Application.routes.draw do
   
   match '/data_receiver', to: 'garden_device_service#receive_data', via: :post
   match '/polling_service', to: 'garden_device_service#poll_for_updates', via: :post
+  
+  match '/charts/:action', to: 'charts#overview', as: :charts
 end

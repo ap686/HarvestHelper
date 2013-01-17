@@ -24,7 +24,6 @@
     %tr
       %td
       %td= f.submit "Add Schedule"
-%h2 Data
-%ul
-- @garden_device.garden_datas.each do |data|
-  %li= "Temperature: " + data.temperature.to_s + " C, Humidity: " + data.humidity.to_s + "%, Lux: " + data.lux.to_s
+= google_chart('temperature_graph', 300, { :device_id => @garden_device.id })
+= google_chart('humidity_graph', 300, { :device_id => @garden_device.id })
+= google_chart('light_graph', 300, { :device_id => @garden_device.id })
