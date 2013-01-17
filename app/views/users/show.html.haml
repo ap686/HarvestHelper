@@ -1,2 +1,11 @@
-%h1= @user.first_name + " " + @user.last_name + "'s Profile"
-%p= @user.email
+.container.row.span8
+  %h1= @user.first_name + " " + @user.last_name + "'s Profile"
+  .well
+    %ul.nav
+      %b
+        %li
+          = "First Name: " + @user.first_name
+        %li
+          = "Last Name: " + @user.last_name
+        %li
+          = "Email Address: " + @user.email

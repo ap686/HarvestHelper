@@ -16,8 +16,13 @@ describe PostsController do
   
     describe "GET 'show'" do
       it "returns http success" do
-        get 'show', :id => post.id
+        get :show, :id => post.id
         response.should be_success
+      end
+      
+      it "should render #show view" do
+        get :show, :id => post.id
+        response.should render_template :show
       end
     end
   
