@@ -10,6 +10,7 @@ gem 'devise'
 
 group :production do
   gem 'pg'
+  gem 'twitter-bootstrap-rails'
 end
 
 group :development, :test do
