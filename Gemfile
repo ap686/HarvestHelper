@@ -8,9 +8,12 @@ gem 'thread'
 gem 'pry-rails'
 gem 'devise'
 
+gem 'sass-rails', '~> 3.2.3'
+gem 'bootstrap-sass', '~> 2.2.2.0'
+gem 'bootstrap-sass-rails'
+
 group :production do
   gem 'pg'
-  gem 'twitter-bootstrap-rails'
 end
 
 group :development, :test do
@@ -28,9 +31,6 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '~> 3.2.3'
-  gem 'bootstrap-sass', '~> 2.2.2.0'
-  gem 'bootstrap-sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
