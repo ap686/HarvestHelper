@@ -1,29 +1,54 @@
+:javascript  
+  function toggleFrequency(enableBox){
+    if(enableBox.checked){
+      document.getElementById('device_schedule_frequency').disabled = 0;
+    }else{
+      document.getElementById('device_schedule_frequency').disabled = 1;
+      document.getElementById('device_schedule_frequency').value = '';
+    }
+  }
+  
+  function sensorTypeChanged(cBox){
+    if(cBox.value == "u"){
+      document.getElementById('device_schedule_is_enabled').checked = 1;
+      document.getElementById('device_schedule_is_enabled').disabled = 1;
+    }else{
+      document.getElementById('device_schedule_is_enabled').disabled = 0;      
+    }
+  }
+  
 %h1= @garden_device.name
+
 %h2 Schedules
 - if @garden_device.device_schedules.length > 0
-  %table
+  %table.table.table-striped
     %tr
       %th Schedule Type
       %th Frequency
-      %th Delete
+      %th Status
     - @garden_device.device_schedules.each do |schedule|
       %tr
         %td= ScheduleTypeLookup.find_by_flag(schedule.sensor_flag).name
-        %td= "Every " + pluralize(schedule.frequency, "minute")
-        %td= link_to 'Delete', {:controller => :device_schedules, :action => :destroy, :id => schedule.id}, :confirm=> "Delete this schedule?", :method => :delete
-%h3 Add Schedule
+        %td= schedule.is_enabled ? "Every " + pluralize(schedule.frequency, "minute") : "---"
+        %td= schedule.is_enabled ? "Enabled" : "Disabled"
+        
+%h3 Update Schedule
 = form_for(@device_schedule) do |f|
   = hidden_field_tag 'garden_device_id', @garden_device.id
   %table
     %tr
       %td= f.label :sensor_flag, "Schedule Type"
-      %td= f.select :sensor_flag, ScheduleTypeLookup.all.collect {|s| [s.name, s.flag]}
+      %td= f.select :sensor_flag, ScheduleTypeLookup.all.collect {|s| [s.name, s.flag]}, {}, :onchange => "sensorTypeChanged(this)"
     %tr
       %td= f.label :frequency, "Frequency (in minutes)"
-      %td= f.text_field :frequency
+      %td= f.text_field :frequency, :onkeypress => "return numberonly(event,false)"
+    %tr
+      %td= f.label :is_enabled, "Enabled"
+      %td= f.check_box :is_enabled, :onclick => "toggleFrequency(this)", :checked => true
     %tr
       %td
-      %td= f.submit "Add Schedule"
+      %td= f.submit "Update"
+      
 = google_chart('temperature_graph', 300, { :device_id => @garden_device.id })
 = google_chart('humidity_graph', 300, { :device_id => @garden_device.id })
 = google_chart('light_graph', 300, { :device_id => @garden_device.id })

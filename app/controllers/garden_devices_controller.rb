@@ -1,5 +1,4 @@
 class GardenDevicesController < ApplicationController
-
   def index
     @garden_devices = current_user.garden_devices
     
@@ -30,6 +29,14 @@ class GardenDevicesController < ApplicationController
   def create
     @garden_device = current_user.garden_devices.build(params[:garden_device])
     if @garden_device.save
+      ScheduleTypeLookup.all.each do |lu|
+        schedule = DeviceSchedule.new
+        schedule.sensor_flag = lu.flag
+        schedule.frequency = 5
+        schedule.garden_device = @garden_device
+        schedule.is_enabled = (lu.flag == "u")
+        schedule.save
+      end
       redirect_to garden_devices_path
     else
       render 'new'

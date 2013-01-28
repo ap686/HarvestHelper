@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111204955) do
+ActiveRecord::Schema.define(:version => 20130127145717) do
 
   create_table "comments", :force => true do |t|
     t.string   "content"
@@ -24,18 +24,10 @@ ActiveRecord::Schema.define(:version => 20130111204955) do
   create_table "device_schedules", :force => true do |t|
     t.string   "sensor_flag"
     t.integer  "frequency"
-    t.time     "start_time"
-    t.time     "end_time"
-    t.boolean  "f_monday"
-    t.boolean  "f_tuesday"
-    t.boolean  "f_wednesday"
-    t.boolean  "f_thursday"
-    t.boolean  "f_friday"
-    t.boolean  "f_saturday"
-    t.boolean  "f_sunday"
     t.integer  "garden_device_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.boolean  "is_enabled"
   end
 
   create_table "garden_data", :force => true do |t|

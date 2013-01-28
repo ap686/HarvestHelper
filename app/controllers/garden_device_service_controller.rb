@@ -23,7 +23,7 @@ class GardenDeviceServiceController < ApplicationController
         }
         if (new_data)
           schedules = garden_device.device_schedules
-          output = schedules.map{|s| "*/#{s.frequency} * * * * /usr/sbin/client -#{s.sensor_flag}"}.join("\n") + "\n"
+          output = schedules.map{|s| s.is_enabled ? "*/#{s.frequency} * * * * /usr/sbin/client -#{s.sensor_flag}\n" : ""}.join("")
           render :text => output
         else
           render :nothing => true, :status => :ok
