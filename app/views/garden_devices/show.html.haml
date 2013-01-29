@@ -1,22 +1,3 @@
-:javascript  
-  function toggleFrequency(enableBox){
-    if(enableBox.checked){
-      document.getElementById('device_schedule_frequency').disabled = 0;
-    }else{
-      document.getElementById('device_schedule_frequency').disabled = 1;
-      document.getElementById('device_schedule_frequency').value = '';
-    }
-  }
-  
-  function sensorTypeChanged(cBox){
-    if(cBox.value == "u"){
-      document.getElementById('device_schedule_is_enabled').checked = 1;
-      document.getElementById('device_schedule_is_enabled').disabled = 1;
-    }else{
-      document.getElementById('device_schedule_is_enabled').disabled = 0;      
-    }
-  }
-  
 %h1= @garden_device.name
 
 %h2 Schedules
@@ -28,9 +9,17 @@
       %th Status
     - @garden_device.device_schedules.each do |schedule|
       %tr
-        %td= ScheduleTypeLookup.find_by_flag(schedule.sensor_flag).name
+        %td= ScheduleTypeLookup.find_by_flag(schedule.sensor_flag).get_name rescue nil
         %td= schedule.is_enabled ? "Every " + pluralize(schedule.frequency, "minute") : "---"
-        %td= schedule.is_enabled ? "Enabled" : "Disabled"
+        %td
+          - if schedule.is_enabled
+            .label.label-success
+              = "Enabled" 
+          - else
+            .label.label-important
+              = "Disabled"
+                 
+        
         
 %h3 Update Schedule
 = form_for(@device_schedule) do |f|
