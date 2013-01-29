@@ -6,4 +6,8 @@ class DeviceSchedule < ActiveRecord::Base
               presence: true
   validates :sensor_flag,
               presence: true
+              
+  def display_time
+    self.is_enabled ? "Every " + self.frequency.to_s + " minute".pluralize : "---"
+  end
 end

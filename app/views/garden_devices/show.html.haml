@@ -10,7 +10,7 @@
     - @garden_device.device_schedules.each do |schedule|
       %tr
         %td= ScheduleTypeLookup.find_by_flag(schedule.sensor_flag).get_name rescue nil
-        %td= schedule.is_enabled ? "Every " + pluralize(schedule.frequency, "minute") : "---"
+        %td= schedule.display_time
         %td
           - if schedule.is_enabled
             .label.label-success
