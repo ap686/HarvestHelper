@@ -15,4 +15,17 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   
+  def get_full_name
+    first = self.first_name
+    last = self.last_name
+    first + " " + last rescue nil
+  end
+  
+  def get_first_name
+    self.first_name rescue nil
+  end
+  
+  def get_last_name
+    self.last_name rescue nil
+  end
 end
