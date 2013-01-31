@@ -1,7 +1,8 @@
 class GardenDevicesController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     @garden_devices = current_user.garden_devices
-    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @garden_devices }
@@ -9,21 +10,12 @@ class GardenDevicesController < ApplicationController
   end
   
   def show
-    if !user_signed_in?
-      redirect_to root_path
-    else
-      @garden_device = GardenDevice.find(params[:id])
-      @device_schedule = DeviceSchedule.new
-    end
+    @garden_device = GardenDevice.find(params[:id])
+    @device_schedule = DeviceSchedule.new
   end
   
   def new
-    if !user_signed_in?
-      redirect_to root_path
-    else
-      @garden_device = GardenDevice.new
-    end
-      
+    @garden_device = GardenDevice.new
   end
   
   def create
@@ -41,5 +33,30 @@ class GardenDevicesController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def edit
+    @garden_device = GardenDevice.find(params[:id])
+  end
+  
+  def update
+    @garden_device = GardenDevice.find(params[:id])
+    if @garden_device.update_attributes(params[:garden_device])
+      respond_to do |format|
+        format.html {redirect_to garden_devices_path, :notice => "Garden Device was successfully updated."}
+      end
+    else
+      respond_to do |format|
+        format.html {render action: 'edit'}
+      end
+    end
+  end
+  
+  def destroy
+    @garden_device = current_user.garden_devices.find(params[:id])
+    @garden_device.destroy
+    respond_to do |format|
+      format.html { redirect_to garden_devices_path }
+    end    
   end
 end
