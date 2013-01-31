@@ -1,0 +1,20 @@
+= form_for @garden_device, :html => {:class => 'form-horizontal'} do |f|
+  - if @garden_device.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@garden_device.errors.count, "error")} prohibited this garden_device from being saved:"
+      %ul
+        - @garden_device.errors.full_messages.each do |msg|
+          %li= msg
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label :serial_number, :class => 'control-label'
+    .controls
+      = f.text_field :serial_number, :class => 'text_field'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), |
+      garden_devices_path, :class => 'btn'       
+

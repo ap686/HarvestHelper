@@ -2,7 +2,7 @@
 
 %table.table.table-striped
   %tr
-    %th Name 
+    %th Device Name 
     %th Serial Number
     %th Owner
     %th Action
@@ -11,8 +11,10 @@
     %tr
       %td= garden_device.name
       %td= garden_device.serial_number
-      %td= garden_device.user.email
-      %td= link_to 'Show', garden_device
+      %td= garden_device.user.get_full_name
+      %td
+        = link_to 'Show', garden_device, :class => 'btn btn-mini btn-info'
+        = link_to 'Edit', edit_garden_device_path(garden_device), :class => 'btn btn-mini btn-warning'
       
 %br
 

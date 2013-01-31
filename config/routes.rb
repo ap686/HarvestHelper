@@ -7,7 +7,7 @@ HarvestHelper::Application.routes.draw do
   
   resources :users, only: [:show]
 	#resources :sessions, only: [:new, :create, :destroy]
-  resources :garden_devices, only: [:show, :new, :create, :index]
+  resources :garden_devices
   resources :device_schedules, only: [:create, :destroy]
   resources :message_boards, only: [:index, :show]
   resources :posts, only: [:show, :new, :create, :destroy]
