@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+ScheduleTypeLookup.find_or_create_by_flag("t", { :flag => "t", :name => "Temperature/Humidity Sensor"})
+ScheduleTypeLookup.find_or_create_by_flag("l", { :flag => "l", :name => "Light Sensor"})
+ScheduleTypeLookup.find_or_create_by_flag("u", { :flag => "u", :name => "Schedule Update Frequency"})
