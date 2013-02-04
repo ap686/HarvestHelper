@@ -6,8 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-AdminUser.find_or_create_by_email(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password') 
+AdminUser.find_or_create_by_email(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+MessageBoard.find_or_create_by_name("Sample Message Board") 
 
 ["t", "l", "u"].zip(["Temperature/Humidity Sensor", "Light Sensor", "Schedule Update Frequency"]).each do |flag, name|
-  ScheduleTypeLookup.find_or_create_by_flag(flag, { :flag => flag, :name => name})
+  ScheduleTypeLookup.find_or_create_by_flag(:flag => flag, :name => name)
 end
