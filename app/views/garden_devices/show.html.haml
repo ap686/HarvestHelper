@@ -36,7 +36,7 @@
       %td= f.check_box :is_enabled, :onclick => "toggleFrequency(this)", :checked => true
     %tr
       %td
-      %td= f.submit "Update"
+      %td= f.submit "Update", :class => "btn btn-primary"
       
 = google_chart('temperature_graph', 300, { :device_id => @garden_device.id })
 = google_chart('humidity_graph', 300, { :device_id => @garden_device.id })

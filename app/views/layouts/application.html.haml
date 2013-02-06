@@ -36,8 +36,11 @@
     .container
       .row
         .span12
-          .well
-            = yield     
+          - if current_page?(new_user_session_path) or current_page?(new_user_registration_path)
+            = yield
+          - else
+            .well
+              = yield     
     %footer
       .container
         .row
