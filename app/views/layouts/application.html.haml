@@ -35,6 +35,13 @@
                 = link_to 'Sign In', new_user_session_path
     .container
       .row
-        .span10
-          = yield
-        .span2
+        .span12
+          .well
+            = yield     
+    %footer
+      .container
+        .row
+          .span12.blog-footer
+            = "Copyright © 2012 - #{Time.now.year}"
+            = link_to "Drexel University - Computer Science", "http://cs.drexel.edu"
+            = ". All Rights Reserved."

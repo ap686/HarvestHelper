@@ -38,3 +38,14 @@ body { padding-top: 80px; }
 table-striped tr td{
 	background-color: #080808;
 }
+
+.blog-footer{
+  height: 100px;
+  background-color: #404040;
+  padding-top: 50px;
+  text-align: center;
+  text-shadow: #D9D9D9 0 1px;
+  color: #999;
+  margin-bottom: 0;
+  margin-top: 25px;
+}
