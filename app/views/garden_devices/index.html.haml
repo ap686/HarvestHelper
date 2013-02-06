@@ -1,21 +1,22 @@
 %h1 My Garden Devices
 
 %table.table.table-striped
-  %tr
-    %th Device Name 
-    %th Serial Number
-    %th Owner
-    %th Action
-
-  - @garden_devices.each do |garden_device|
+  %thead
     %tr
-      %td= garden_device.name
-      %td= garden_device.serial_number
-      %td= garden_device.user.get_full_name
-      %td
-        = link_to 'Show', garden_device, :class => 'btn btn-mini btn-info'
-        = link_to 'Edit', edit_garden_device_path(garden_device), :class => 'btn btn-mini btn-warning'
-      
+      %th Device Name 
+      %th Serial Number
+      %th Owner
+      %th Action
+  %tbody
+    - @garden_devices.each do |garden_device|
+      %tr
+        %td= garden_device.name
+        %td= garden_device.serial_number
+        %td= garden_device.user.get_full_name
+        %td
+          = link_to 'Show', garden_device, :class => 'btn btn-mini btn-info'
+          = link_to 'Edit', edit_garden_device_path(garden_device), :class => 'btn btn-mini btn-warning'
+        
 %br
 
 = link_to 'Add More Device', new_garden_device_path, :class=> "btn btn-primary"

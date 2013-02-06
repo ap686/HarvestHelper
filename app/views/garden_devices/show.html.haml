@@ -3,10 +3,12 @@
 %h2 Schedules
 - if @garden_device.device_schedules.length > 0
   %table.table.table-striped
-    %tr
-      %th Schedule Type
-      %th Frequency
-      %th Status
+    %thead
+      %tr
+        %th Schedule Type
+        %th Frequency
+        %th Status
+    %tbody
     - @garden_device.device_schedules.each do |schedule|
       %tr
         %td= ScheduleTypeLookup.find_by_flag(schedule.sensor_flag).get_name rescue nil
@@ -18,7 +20,7 @@
           - else
             .label.label-important
               = "Disabled"
-                 
+               
         
         
 %h3 Update Schedule

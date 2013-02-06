@@ -42,3 +42,5 @@ table{
 .footer a{
 	color: #000;
 }
+
+.table-striped thead tr th {background-color: #A0A0A0;}
