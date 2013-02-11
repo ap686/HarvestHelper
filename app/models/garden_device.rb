@@ -1,5 +1,7 @@
 class GardenDevice < ActiveRecord::Base
   attr_accessible :name, :serial_number
+  attr_accessible :name, :serial_number, :user_id, as: :admin
+  
   belongs_to :user
   has_many :garden_datas
   has_many :device_schedules
