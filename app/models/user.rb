@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
   def get_last_name
     self.last_name rescue nil
   end
+  
+  def to_s
+   get_full_name
+  end
 end
