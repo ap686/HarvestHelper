@@ -6,8 +6,8 @@ ActiveAdmin.register User do
     column "Number of Garden Devices" do |user|
       user.garden_devices.count
     end
-    column "Garden Device details" do 
-      link_to 'Show devices', admin_garden_devices_path
+    column "Garden Device details" do |user|
+      link_to 'Show devices', admin_user_garden_devices_path(user)
     end
     column "Action" do |user|
       link_to 'Edit', edit_admin_user_path(user)                                    
@@ -24,5 +24,4 @@ ActiveAdmin.register User do
     end
     f.buttons
   end
-
 end

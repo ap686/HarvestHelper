@@ -1,5 +1,4 @@
-ActiveAdmin.register GardenDevice do
-  belongs_to :user
+ActiveAdmin.register GardenDevice , :as => "All Garden Devices" do
   index do 
     column :name 
     column :serial_number
