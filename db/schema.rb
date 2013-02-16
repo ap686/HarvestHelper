@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129205740) do
+ActiveRecord::Schema.define(:version => 20130216173419) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130129205740) do
     t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "timezone"
   end
 
   add_index "garden_devices", ["serial_number"], :name => "index_garden_devices_on_serial_number", :unique => true

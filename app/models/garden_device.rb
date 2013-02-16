@@ -1,6 +1,6 @@
 class GardenDevice < ActiveRecord::Base
-  attr_accessible :name, :serial_number
-  attr_accessible :name, :serial_number, :user_id, as: :admin
+  attr_accessible :name, :serial_number, :timezone
+  attr_accessible :name, :serial_number, :timezone, :user_id, as: :admin
   
   belongs_to :user
   has_many :garden_datas
@@ -8,7 +8,7 @@ class GardenDevice < ActiveRecord::Base
   
   before_save { |device| device.serial_number = serial_number.downcase }
   
-  validates :name, :user,
+  validates :name, :user, :timezone,
               presence: true
   validates :serial_number,
               presence: true,
