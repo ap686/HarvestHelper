@@ -9,6 +9,6 @@
 AdminUser.find_or_create_by_email(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
 MessageBoard.find_or_create_by_name("Sample Message Board") 
 
-["t", "l", "u"].zip(["Temperature/Humidity Sensor", "Light Sensor", "Schedule Update Frequency"]).each do |flag, name|
-  ScheduleTypeLookup.find_or_create_by_flag(:flag => flag, :name => name)
-end
+ScheduleTypeLookup.find_or_create_by_flag(:flag => "t", :name => "Temperature/Humidity Sensor")
+ScheduleTypeLookup.find_or_create_by_flag(:flag => "l", :name => "Light Sensor")
+ScheduleTypeLookup.find_or_create_by_flag(:flag => "u", :name => "Schedule Update Frequency")
