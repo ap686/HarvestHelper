@@ -59,4 +59,8 @@ class GardenDevicesController < ApplicationController
       format.html { redirect_to garden_devices_path }
     end    
   end
+  
+  def graphs
+    @garden_device = GardenDevice.find(params[:id])
+  end
 end

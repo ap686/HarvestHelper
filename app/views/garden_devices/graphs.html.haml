@@ -1,0 +1,10 @@
+%h1
+  = "Graph for device #{@garden_device.name}"
+  
+%hr
+  = google_chart('temperature_graph', 300, { :device_id => @garden_device.id })
+  = google_chart('humidity_graph', 300, { :device_id => @garden_device.id })
+  = google_chart('light_graph', 300, { :device_id => @garden_device.id })
+  
+.form-actions
+  = link_to 'Back', garden_device_path(@garden_device), :class => 'btn btn-primary'

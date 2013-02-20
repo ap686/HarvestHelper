@@ -16,8 +16,8 @@
 html { height: 100%; }
 body { 
 	height: 100%; padding-top: 80px; 
-	/*background-image: url("/images/grass.jpg");*/	
-	background-size: 100%;
+	background-image: url("/images/grass.jpg");/**/	
+	background-size: 100% 140%;
 	background-repeat: no-repeat;
 }
 
