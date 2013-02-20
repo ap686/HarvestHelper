@@ -43,9 +43,7 @@
               .well= yield
       .push     
     %footer
-      .container
-        .row
-          .span12.footer
-            = "Copyright © 2012 - #{Time.now.year}"
-            = link_to "Drexel University - Computer Science", "http://cs.drexel.edu"
-            = ". All Rights Reserved."
+      .footer
+        = "Copyright © 2012 - #{Time.now.year}"
+        = link_to "Drexel University - Computer Science", "http://cs.drexel.edu"
+        = ". All Rights Reserved."

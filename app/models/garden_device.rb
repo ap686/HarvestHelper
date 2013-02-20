@@ -13,4 +13,5 @@ class GardenDevice < ActiveRecord::Base
   validates :serial_number,
               presence: true,
               uniqueness: { case_sensitive: false }
+  paginates_per 10
 end
