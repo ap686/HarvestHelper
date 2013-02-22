@@ -8,37 +8,13 @@
     = javascript_include_tag "validation"
     = csrf_meta_tags
   %body
+    = render :partial => 'layouts/topbar'
     .wrapper
-      .navbar.navbar-fixed-top.navbar-inverse
-        .navbar-inner
-          .container
-            %a.brand{:href => "#"}Harvest Helper
-            %ul.nav
-              %li
-                = link_to 'Home', root_path
-              %li
-                = link_to 'About', about_path
-              - if user_signed_in?
-                %li
-                  = link_to 'My Devices', garden_devices_path
-                %li
-                  = link_to 'Forums', message_boards_path
-            %ul.nav.pull-right
-              - if user_signed_in?
-                %li
-                  = link_to current_user.get_full_name, current_user
-                %li
-                  = link_to "My Profile", users_show_path
-                %li
-                  = link_to 'Sign Out', destroy_user_session_path, method: 'delete'
-              - else
-                %li
-                  = link_to 'Sign In', new_user_session_path
       .container
         .row
-          .span12
+          .span12.home-style
             = yield
-      .push     
+      .push
     %footer
       .footer
         = "Copyright © 2012 - #{Time.now.year}"
