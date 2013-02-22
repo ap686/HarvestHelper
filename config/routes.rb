@@ -5,7 +5,9 @@ HarvestHelper::Application.routes.draw do
 
   get "users/show"
 
-  devise_for :users
+  devise_for :users, :controllers => {
+                        :sessions => 'my_devise/sessions'
+                    }
 
   root to: 'static_pages#home'
   
