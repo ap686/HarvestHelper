@@ -8,15 +8,12 @@
     = javascript_include_tag "validation"
     = csrf_meta_tags
   %body
-    = render :partial => 'layouts/topbar'
+    = render 'layouts/shares/topbar'
     .wrapper
       .container
         .row
           .span12.home-style
             = yield
       .push
-    %footer
-      .footer
-        = "Copyright © 2012 - #{Time.now.year}"
-        = link_to "Drexel University - Computer Science", "http://cs.drexel.edu"
-        = ". All Rights Reserved."
+    = render 'layouts/shares/footer'
+    
