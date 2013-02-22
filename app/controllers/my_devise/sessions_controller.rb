@@ -1,3 +1,3 @@
 class MyDevise::SessionsController < Devise::SessionsController
-  layout 'home'
+  layout 'devise'
 end

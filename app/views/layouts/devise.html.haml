@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title HarvestHelper
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag "charts"
+    = javascript_include_tag "validation"
+    = csrf_meta_tags
+  %body
+    = render 'layouts/shares/topbar'
+    .wrapper
+      .container
+        .row
+          .span12
+            = yield
+      .push
+    = render 'layouts/shares/footer'
