@@ -8,7 +8,7 @@ class ChartsController < ApplicationController
       columns = [['datetime', 'Time'], ['number', 'Temperature']]
       device.garden_datas.each do |data|
         if data.temperature != nil
-          rows << [data.sensor_time.to_i, data.temperature.to_f]
+          rows << [ActiveSupport::TimeZone[device.timezone].utc_to_local(data.sensor_time).to_i, data.temperature.to_f]
         end
       end
       render_graph('LineChart', 'Temperature Data', rows, columns)
@@ -24,7 +24,7 @@ class ChartsController < ApplicationController
       columns = [['datetime', 'Time'], ['number', 'Humidity']]
       device.garden_datas.each do |data|
         if data.humidity != nil
-          rows << [data.sensor_time.to_i, data.humidity.to_f]
+          rows << [ActiveSupport::TimeZone[device.timezone].utc_to_local(data.sensor_time).to_i, data.humidity.to_f]
         end
       end
       render_graph('LineChart', 'Humidity Data', rows, columns)
@@ -40,7 +40,7 @@ class ChartsController < ApplicationController
       columns = [['datetime', 'Time'], ['number', 'Lux']]
       device.garden_datas.each do |data|
         if data.lux != nil
-          rows << [data.sensor_time.to_i, data.lux.to_f]
+          rows << [ActiveSupport::TimeZone[device.timezone].utc_to_local(data.sensor_time).to_i, data.lux.to_f]
         end
       end
       render_graph('LineChart', 'Light Data', rows, columns)
@@ -55,7 +55,8 @@ class ChartsController < ApplicationController
         :cols => columns,
         :rows => rows,
         :options => { 
-          :allowRedraw => true
+          :allowRedraw => true,
+          :scaleType => "maximized"
         }
       }
   end
