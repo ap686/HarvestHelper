@@ -20,8 +20,8 @@
                       :method => 'delete',                                                                            |
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to delete?')), |
                       :class => 'btn btn-mini btn-danger'    
-        
-%br
-
-= link_to 'Add More Device', new_garden_device_path, :class=> "btn btn-primary"
+%p
+  = paginate @garden_devices        
+%p
+  = link_to 'Add More Device', new_garden_device_path, :class=> "btn btn-primary"
   

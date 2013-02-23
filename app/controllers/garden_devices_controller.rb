@@ -2,7 +2,7 @@ class GardenDevicesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @garden_devices = current_user.garden_devices
+    @garden_devices = current_user.garden_devices.page(params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @garden_devices }
@@ -58,5 +58,9 @@ class GardenDevicesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to garden_devices_path }
     end    
+  end
+  
+  def graphs
+    @garden_device = GardenDevice.find(params[:id])
   end
 end

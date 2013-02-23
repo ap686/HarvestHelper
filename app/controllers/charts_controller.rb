@@ -5,10 +5,10 @@ class ChartsController < ApplicationController
     else
       device = GardenDevice.find(params[:device_id])
       rows = []
-      columns = [['number', 'ID'], ['number', 'Temperature']]
+      columns = [['datetime', 'Time'], ['number', 'Temperature']]
       device.garden_datas.each do |data|
         if data.temperature != nil
-          rows << [data.id, data.temperature.to_f]
+          rows << [data.sensor_time.to_i, data.temperature.to_f]
         end
       end
       render_graph('LineChart', 'Temperature Data', rows, columns)
@@ -21,10 +21,10 @@ class ChartsController < ApplicationController
     else
       device = GardenDevice.find(params[:device_id])
       rows = []
-      columns = [['number', 'ID'], ['number', 'Humidity']]
+      columns = [['datetime', 'Time'], ['number', 'Humidity']]
       device.garden_datas.each do |data|
         if data.humidity != nil
-          rows << [data.id, data.humidity.to_f]
+          rows << [data.sensor_time.to_i, data.humidity.to_f]
         end
       end
       render_graph('LineChart', 'Humidity Data', rows, columns)
@@ -37,10 +37,10 @@ class ChartsController < ApplicationController
     else
       device = GardenDevice.find(params[:device_id])
       rows = []
-      columns = [['number', 'ID'], ['number', 'Lux']]
+      columns = [['datetime', 'Time'], ['number', 'Lux']]
       device.garden_datas.each do |data|
         if data.lux != nil
-          rows << [data.id, data.lux.to_f]
+          rows << [data.sensor_time.to_i, data.lux.to_f]
         end
       end
       render_graph('LineChart', 'Light Data', rows, columns)
@@ -55,9 +55,7 @@ class ChartsController < ApplicationController
         :cols => columns,
         :rows => rows,
         :options => { 
-          :title => title,
-          :chartArea => { :width => '90%', :height => '75%' },
-          :legend => 'bottom'
+          :allowRedraw => true
         }
       }
   end

@@ -10,10 +10,13 @@ describe "GardenDevice" do
       end
     end
     
-    it "should validate uniqueness of serial number" do
-      garden_device.should validate_uniqueness_of(:serial_number)
+    [:name, :serial_number].each do |attr|
+      it "should validate uniqueness of #{attr}" do
+        garden_device.should validate_uniqueness_of(attr)
+      end
+
     end
-    
+        
     [:garden_datas, :device_schedules].each do |attr|
       it "should have many #{attr}" do
         garden_device.should have_many(attr)

@@ -38,12 +38,9 @@
     %tr
       %td
       %td= f.submit "Update Schedule", :class => "btn btn-primary"
-%hr
-= google_chart('temperature_graph', 300, { :device_id => @garden_device.id })
-= google_chart('humidity_graph', 300, { :device_id => @garden_device.id })
-= google_chart('light_graph', 300, { :device_id => @garden_device.id })
 
 .form-actions
+  = link_to 'View Data Graph of this Device', graphs_path(@garden_device), :class => 'btn btn-primary'
   = link_to 'Edit Device', edit_garden_device_path(@garden_device), :class => 'btn btn-warning'
   = link_to 'Delete Device', garden_device_path(@garden_device),                                                                               |
               :method => 'delete',                                                                            |

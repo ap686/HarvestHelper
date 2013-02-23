@@ -24,7 +24,7 @@ describe GardenDevicesController do
   
     describe "POST create" do
       it "should create a new garden device" do
-        expect{post :create,  :garden_device =>  {:name => "somename", :serial_number => "111"}}.to change{GardenDevice.count}.by(1)
+        expect{post :create,  :garden_device =>  {:name => "somename", :serial_number => "111", :timezone => "TIMEZONE"}}.to change{GardenDevice.count}.by(1)
       end
     end
     

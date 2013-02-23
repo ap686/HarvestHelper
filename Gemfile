@@ -8,6 +8,7 @@ gem 'thread'
 gem 'pry-rails'
 gem 'devise'
 gem 'activeadmin'
+gem "kaminari"
 
 gem 'sass-rails', '~> 3.2.3'
 gem 'bootstrap-sass', '~> 2.2.2.0'

@@ -14,33 +14,56 @@
  */
 
 html { height: 100%; }
-body { height: 100%; padding-top: 80px; }
+body { 
+	height: 100%; padding-top: 80px; 
+	background-image: url("/images/garden.jpg");
+	background-size: 100% 140%;
+	background-repeat: no-repeat;
+}
 
 table{
   margin-top: 30px;
   margin-bottom: 30px;	  
 }
 
-.wrapper{	
+.wrapper{
 	min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
 }
+
 .footer, .push {
     height: 80px; /* .push must be the same height as .footer */
 }
 
 .footer{
   position: relative;
-  color: #fff;
-  background-color: #A0A0A0;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  opacity:0.5;
+  filter:alpha(opacity=50); /* For IE8 and earlier */
   padding-top: 50px;
   text-align: center;
 }
 
 .footer a{
-	color: #000;
+	color: #0000A0;
 }
 
 .table-striped thead tr th {background-color: #A0A0A0;}
+
+.billboard {
+	background-image: url("/images/harvest_helper2.png");
+	position: relative;
+	height: 200px;
+	width: 600px;
+	opacity:0.85;
+	background-repeat: no-repeat;
+}
+
+.home-style{
+	font-size: 13pt;
+	color: #fff;
+}

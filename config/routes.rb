@@ -5,7 +5,9 @@ HarvestHelper::Application.routes.draw do
 
   get "users/show"
 
-  devise_for :users
+  devise_for :users, :controllers => {
+                        :sessions => 'my_devise/sessions'
+                    }
 
   root to: 'static_pages#home'
   
@@ -24,4 +26,5 @@ HarvestHelper::Application.routes.draw do
   match '/polling_service', to: 'garden_device_service#poll_for_updates', via: :post
   
   match '/charts/:action', to: 'charts#overview', as: :charts
+  match "/garden_devices/:id/graphs" => "garden_devices#graphs", :as => 'graphs'
 end
