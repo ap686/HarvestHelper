@@ -7,8 +7,10 @@ describe "GardenData" do
     garden_data.should belong_to(:garden_device)
   end
   
-  it "should have garden_device" do
-    garden_data.should validate_presence_of(:garden_device)
+  [:garden_device, :sensor_time].each do |attr|
+    it "should have #{attr}" do
+      garden_data.should validate_presence_of(attr)
+    end
   end
   
   [:temperature, :humidity].each do |attr|
