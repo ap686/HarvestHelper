@@ -16,6 +16,8 @@ class GardenDevicesController < ApplicationController
   
   def new
     @garden_device = GardenDevice.new
+    @garden_device.latitude = 0
+    @garden_device.longitude = 0
   end
   
   def create

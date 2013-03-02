@@ -67,3 +67,8 @@ table{
 	font-size: 13pt;
 	color: #fff;
 }
+
+#mapdiv{
+  height: 250px;
+  width: 500px;
+}
