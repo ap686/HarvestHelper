@@ -1,6 +1,6 @@
 class GardenDevice < ActiveRecord::Base
-  attr_accessible :name, :serial_number, :timezone
-  attr_accessible :name, :serial_number, :timezone, :user_id, as: :admin
+  attr_accessible :name, :serial_number, :timezone, :latitude, :longitude
+  attr_accessible :name, :serial_number, :timezone, :latitude, :longitude, :user_id, as: :admin
   
   belongs_to :user
   has_many :garden_datas

@@ -5,6 +5,7 @@
       %ul
         - @garden_device.errors.full_messages.each do |msg|
           %li= msg
+
   .control-group
     = f.label :name, :class => 'control-label'
     .controls
@@ -17,8 +18,24 @@
     = f.label :timezone, :class => 'control-label'
     .controls
       = f.select :timezone, ActiveSupport::TimeZone.all.collect {|z| [z.to_s, z.name]}
+  .control-group
+    = f.label "Select Location", :class => 'control-label'
+    .controls
+      #mapdiv
+        %p Loading
+  .control-group
+    = f.label :latitude, :class => 'control-label'
+    .controls
+      = f.text_field :latitude, :class => 'text_field', :readonly => true
+  .control-group
+    = f.label :longitude, :class => 'control-label'
+    .controls
+      = f.text_field :longitude, :class => 'text_field', :readonly => true
   .form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-      garden_devices_path, :class => 'btn'       
-
+      garden_devices_path, :class => 'btn'   
+      
+%script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCixO-MPiCirAciOE-EN3wkMUuPruLVfbc&sensor=false"}
+%script{:type => "text/javascript"}
+  loadMap(document.getElementById('mapdiv'), document.getElementById('garden_device_latitude'), document.getElementById('garden_device_longitude'));
