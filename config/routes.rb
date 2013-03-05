@@ -6,9 +6,14 @@ HarvestHelper::Application.routes.draw do
   get "users/show"
 
   devise_for :users, :controllers => {
-                        :sessions => 'my_devise/sessions'
+                        :sessions => 'my_devise/sessions',
+                        :omniauth_callbacks => "my_devise/omniauth_callbacks"
                     }
 
+  devise_scope :user do
+    get '/users/auth/:provider' => 'my_devise/omniauth_callbacks#passthru'
+  end
+  
   root to: 'static_pages#home'
   
   resources :users, only: [:show]

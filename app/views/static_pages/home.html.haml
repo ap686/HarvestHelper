@@ -7,3 +7,5 @@
   %p
     = "Wanna give a try on your garden? Sign up"
     = link_to "Here", new_user_registration_path
+    = " or Sign in with "
+    = link_to "Facebook", user_omniauth_authorize_path(:facebook)
