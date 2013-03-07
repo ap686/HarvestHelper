@@ -17,3 +17,5 @@
 *~
 *.swp
 .project
+
+config/facebook.yaml

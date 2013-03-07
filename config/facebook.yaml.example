@@ -1,0 +1,11 @@
+development:
+  app_id: 1234
+  secret: abcd
+
+test:
+  app_id:
+  secret:
+
+production:
+  app_id:
+  secret:
